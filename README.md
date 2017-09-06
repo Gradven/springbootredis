@@ -1,0 +1,3 @@
+# springbootredis
+使用springboot框架继承了redis
+采用redis的注解方式对redis缓存进行操作
