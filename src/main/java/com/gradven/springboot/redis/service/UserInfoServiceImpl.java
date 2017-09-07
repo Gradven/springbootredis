@@ -1,6 +1,7 @@
 package com.gradven.springboot.redis.service;
 
 import com.gradven.springboot.redis.cache.CacheDuration;
+import com.gradven.springboot.redis.cache.ExpireTimeConstant;
 import com.gradven.springboot.redis.mapper.UserInfoMapper;
 import com.gradven.springboot.redis.model.UserInfo;
 import org.springframework.cache.annotation.CachePut;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
  * Created by liuhangjun on 2017/9/5.
  */
 @Service
-@CacheDuration(duration = 60)
+@CacheDuration(duration = ExpireTimeConstant.TEN_SEC)
 public class UserInfoServiceImpl extends CrudServiceImpl<UserInfoMapper, UserInfo> implements UserInfoService  {
 
     @Cacheable(value = "userCache", keyGenerator = "keyGenerator", unless="#result == null")
